@@ -1,0 +1,31 @@
+import { body } from "express-validator";
+
+const titleValidation = 
+    body('title')
+    .isString().withMessage('Title must be a string')
+    .trim()
+    .isLength({max: 30}).withMessage('Title length must not be greater than 30')
+
+const descValidation = 
+    body('shortDescription')
+    .isString().withMessage('Description must be a string')
+    .trim()
+    .isLength({max: 100}).withMessage('Description length must not be greater than 100')
+
+const contentValidation = 
+    body('content')
+    .isString().withMessage('Content must be a string')
+    .trim()
+    .isLength({max: 1000}).withMessage('Content length must not be greater than 1000')
+
+const blogIdValidation = 
+    body('blogId')
+    .isString().withMessage('BlogId must be a string')
+    .trim()
+
+export const postDtoValidationMiddleware = [
+    titleValidation,
+    descValidation,
+    contentValidation,
+    blogIdValidation
+]
