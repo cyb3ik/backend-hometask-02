@@ -11,6 +11,7 @@ const descValidation =
     body('shortDescription')
     .isString().withMessage('Description must be a string')
     .trim()
+    .notEmpty().withMessage('Description should not be empty')
     .isLength({max: 100}).withMessage('Description length must not be greater than 100')
 
 const contentValidation = 
