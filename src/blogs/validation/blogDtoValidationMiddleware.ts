@@ -4,6 +4,7 @@ const nameValidation =
     body('name')
     .isString().withMessage('Name must be a string')
     .trim()
+    .notEmpty().withMessage('Name should not be empty string')
     .isLength({max: 15}).withMessage('Name length must not be greater than 15')
 
 const descValidation = 
